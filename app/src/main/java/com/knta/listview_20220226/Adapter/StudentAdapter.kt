@@ -32,8 +32,14 @@ class StudentAdapter(
 
         val txtStudentName = row.findViewById<TextView>(R.id.txtStudentName)
         val txtAge = row.findViewById<TextView>(R.id.txtAge)
-        val txtAddrss = row.findViewById<TextView>(R.id.txtAddress)
+        val txtAddress = row.findViewById<TextView>(R.id.txtAddress)
 
+
+        txtStudentName.text =  data.name
+        txtAddress.text = data.address
+
+        val age = 2022 - data.birthYear + 1
+        txtAge.text = "(${age}세)"
 
 
 
