@@ -42,7 +42,6 @@ class StudentAdapter(
         txtAge.text = "(${age}세)"
 
 
-
         return row
 
 
