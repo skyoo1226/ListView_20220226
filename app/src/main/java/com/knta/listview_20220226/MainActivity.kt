@@ -3,6 +3,7 @@ package com.knta.listview_20220226
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.AdapterView
 import android.widget.Toast
 import com.neppplus.listview_20220226.adapters.StudentAdapter
 import com.neppplus.listview_20220226.datas.StudentData
@@ -37,12 +38,24 @@ class MainActivity : AppCompatActivity() {
 
         studentListView.setOnItemClickListener { adapterView, view, position, l ->
 
-            val  clickedStudent = mStudentList[position]
+//            position : 몇번 줄이 눌렸나? 알려줌. 0에서 출발.
 
-            Toast.makeText(this, "${clickedStudent.name}", Toast.LENGTH_SHORT).show()
+            val clickedStudent = mStudentList[position]
 
+            Toast.makeText(this, "${clickedStudent.name}학생이 클릭됨", Toast.LENGTH_SHORT).show()
 
         }
+
+        studentListView.setOnItemLongClickListener { adapterView, view, position, l ->
+
+            val longClickedStudent = mStudentList[position]
+
+            Toast.makeText(this, "${longClickedStudent.name} 학생이 길게 클릭됨", Toast.LENGTH_SHORT).show()
+
+
+            return@setOnItemLongClickListener true
+        }
+
 
     }
 }
